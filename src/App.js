@@ -3,17 +3,18 @@ import DrumGrid from "./Components/DrumGrid";
 import "./App.css";
 
 const App = () => {
-  let a = ["a", "b", 4];
-  let b = { a: 4, b: "dsdf" };
-
-  console.log(a);
-  console.table(a);
-  console.log(b);
-  console.table(b);
   return (
-    <div className="App" style={{ margin: 30 }}>
+    <div id="drum-machine" className="App" style={{ margin: 30 }}>
       Hello React!
       <DrumGrid></DrumGrid>
+      <div id="Heater-1" className="drum-pad">
+        <audio
+          className="clip"
+          id="Q"
+          src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+        ></audio>
+        testing
+      </div>
     </div>
   );
 };
