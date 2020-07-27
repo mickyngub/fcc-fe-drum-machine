@@ -39,6 +39,7 @@ const DrumGrid = () => {
         break;
       case 88:
         setText("Kick");
+
         playSoundX();
         break;
       case 67:
@@ -67,42 +68,59 @@ const DrumGrid = () => {
 
   const playSoundQ = () => {
     console.log(audioQ.current);
+    setText("Heater1");
     audioQ.current.play();
   };
   const playSoundW = () => {
     console.log(audioW.current);
+    setText("Heater2");
     audioW.current.play();
   };
   const playSoundE = () => {
     console.log(audioE.current);
+    setText("Heater3");
     audioE.current.play();
   };
   const playSoundA = () => {
     console.log(audioA.current);
+    setText("Heater4");
     audioA.current.play();
   };
   const playSoundS = () => {
     console.log(audioS.current);
+    setText("Clap");
+
     audioS.current.play();
   };
   const playSoundD = () => {
     console.log(audioD.current);
+    setText("Open-HH");
+
     audioD.current.play();
   };
   const playSoundZ = () => {
     console.log(audioZ.current);
+    setText("Kick-n'-Hat");
+
     audioZ.current.play();
   };
   const playSoundX = () => {
     console.log(audioX.current);
+    setText("Kick");
+
     audioX.current.play();
   };
   const playSoundC = () => {
     console.log(audioC.current);
+    setText("Closed-HH");
+
     audioC.current.play();
   };
   return (
     <div>
+      <div id="displayBox">
+        <p id="display">{text}</p>
+      </div>
       <div id="drum-display">
         <Grid container spacing={3} style={{ marginTop: 20 }}>
           <Grid
@@ -255,9 +273,6 @@ const DrumGrid = () => {
             C
           </Grid>
         </Grid>
-      </div>
-      <div id="displayBox">
-        <p id="display">{text}</p>
       </div>
     </div>
   );
