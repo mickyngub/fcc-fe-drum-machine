@@ -4,44 +4,45 @@ import Grid from "@material-ui/core/Grid";
 const DrumGrid = () => {
   const [text, setText] = useState("");
   const keyPressHandler = useCallback((event) => {
-    let { key } = event;
+    let { key, keyCode } = event;
     key = key.toUpperCase();
     console.log(key);
-    switch (key) {
-      case "Q":
-        setText("Heater-1");
+    console.log(keyCode);
+    switch (keyCode) {
+      case 81:
+        setText("Heater1");
         playSoundQ();
         break;
-      case "W":
-        setText("Heater-2");
+      case 87:
+        setText("Heater2");
         playSoundW();
         break;
-      case "E":
-        setText("Heater-3");
+      case 69:
+        setText("Heater3");
         playSoundE();
         break;
-      case "A":
-        setText("Heater-4");
+      case 65:
+        setText("Heater4");
         playSoundA();
         break;
-      case "S":
-        setText("Open-HH");
+      case 83:
+        setText("Clap");
         playSoundS();
         break;
-      case "D":
-        setText("Kick n hat");
+      case 68:
+        setText("Open-HH");
         playSoundD();
         break;
-      case "Z":
-        setText("Closed HH");
+      case 90:
+        setText("Kick-n'-Hat");
         playSoundZ();
         break;
-      case "X":
-        setText("Snare");
+      case 88:
+        setText("Kick");
         playSoundX();
         break;
-      case "C":
-        setText("Clap");
+      case 67:
+        setText("Closed-HH");
         playSoundC();
         break;
       default:
@@ -101,160 +102,163 @@ const DrumGrid = () => {
     audioC.current.play();
   };
   return (
-    <div id="display">
-      {text && text}
-      <Grid container spacing={3} style={{ marginTop: 20 }}>
-        <Grid
-          item
-          xs
-          id="Heater1"
-          className="drum-pad"
-          style={{ backgroundColor: "steelblue", margin: 10 }}
-          onClick={playSoundQ}
-        >
-          <p>Q</p>
-          <audio
-            id="Q"
-            ref={audioQ}
-            className="clip"
-            type="audio/mp3"
-            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
-          ></audio>
+    <div>
+      <div id="drum-display">
+        <Grid container spacing={3} style={{ marginTop: 20 }}>
+          <Grid
+            item
+            xs
+            id="Heater1"
+            className="drum-pad"
+            style={{ backgroundColor: "steelblue", margin: 10 }}
+            onClick={playSoundQ}
+          >
+            <audio
+              id="Q"
+              ref={audioQ}
+              className="clip"
+              type="audio/mp3"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"
+            ></audio>
+            Q
+          </Grid>
+          <Grid
+            item
+            xs
+            id="Heater2"
+            className="drum-pad"
+            style={{ backgroundColor: "steelblue", margin: 10 }}
+            onClick={playSoundW}
+          >
+            <audio
+              ref={audioW}
+              className="clip"
+              id="W"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"
+            ></audio>
+            W
+          </Grid>
+          <Grid
+            item
+            xs
+            id="Heater3"
+            className="drum-pad"
+            style={{ backgroundColor: "steelblue", margin: 10 }}
+            onClick={playSoundE}
+          >
+            <audio
+              ref={audioE}
+              className="clip"
+              id="E"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"
+            ></audio>
+            E
+          </Grid>
         </Grid>
-        <Grid
-          item
-          xs
-          id="Heater2"
-          className="drum-pad"
-          style={{ backgroundColor: "steelblue", margin: 10 }}
-          onClick={playSoundW}
-        >
-          <audio
-            ref={audioW}
-            className="clip"
-            id="W"
-            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"
-          ></audio>
-          W
+        <Grid container spacing={3}>
+          <Grid
+            item
+            xs
+            id="Heater4"
+            className="drum-pad"
+            style={{ backgroundColor: "pink", margin: 10 }}
+            onClick={playSoundA}
+          >
+            <audio
+              ref={audioA}
+              className="clip"
+              id="A"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
+            ></audio>
+            A
+          </Grid>
+          <Grid
+            item
+            xs
+            id="Clap"
+            className="drum-pad"
+            style={{ backgroundColor: "pink", margin: 10 }}
+            onClick={playSoundS}
+          >
+            <audio
+              ref={audioS}
+              className="clip"
+              id="S"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"
+            ></audio>
+            S
+          </Grid>
+          <Grid
+            item
+            xs
+            id="Open-HH"
+            className="drum-pad"
+            style={{ backgroundColor: "pink", margin: 10 }}
+            onClick={playSoundD}
+          >
+            <audio
+              ref={audioD}
+              className="clip"
+              id="D"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"
+            ></audio>
+            D
+          </Grid>
         </Grid>
-        <Grid
-          item
-          xs
-          id="Heater3"
-          className="drum-pad"
-          style={{ backgroundColor: "steelblue", margin: 10 }}
-          onClick={playSoundE}
-        >
-          <audio
-            ref={audioE}
-            className="clip"
-            id="E"
-            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"
-          ></audio>
-          E
+        <Grid container spacing={3}>
+          <Grid
+            item
+            xs
+            id="Kick-n'-Hat"
+            className="drum-pad"
+            style={{ backgroundColor: "yellow", margin: 10 }}
+            onClick={playSoundZ}
+          >
+            <audio
+              ref={audioZ}
+              className="clip"
+              id="Z"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"
+            ></audio>
+            Z
+          </Grid>
+          <Grid
+            item
+            xs
+            id="Kick"
+            className="drum-pad"
+            style={{ backgroundColor: "yellow", margin: 10 }}
+            onClick={playSoundX}
+          >
+            <audio
+              ref={audioX}
+              className="clip"
+              id="X"
+              src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"
+            ></audio>
+            X
+          </Grid>
+          <Grid
+            item
+            xs
+            id="Closed-HH"
+            className="drum-pad"
+            style={{ backgroundColor: "yellow", margin: 10 }}
+            onClick={playSoundC}
+          >
+            <audio
+              ref={audioC}
+              className="clip"
+              id="C"
+              src="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"
+            ></audio>
+            C
+          </Grid>
         </Grid>
-      </Grid>
-      <Grid container spacing={3}>
-        <Grid
-          item
-          xs
-          id="Heater4"
-          className="drum-pad"
-          style={{ backgroundColor: "pink", margin: 10 }}
-          onClick={playSoundA}
-        >
-          <audio
-            ref={audioA}
-            className="clip"
-            id="A"
-            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
-          ></audio>
-          A
-        </Grid>
-        <Grid
-          item
-          xs
-          id="Clap"
-          className="drum-pad"
-          style={{ backgroundColor: "pink", margin: 10 }}
-          onClick={playSoundS}
-        >
-          <audio
-            ref={audioS}
-            className="clip"
-            id="S"
-            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"
-          ></audio>
-          S
-        </Grid>
-        <Grid
-          item
-          xs
-          id="Open-HH"
-          className="drum-pad"
-          style={{ backgroundColor: "pink", margin: 10 }}
-          onClick={playSoundD}
-        >
-          <audio
-            ref={audioD}
-            className="clip"
-            id="D"
-            src="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"
-          ></audio>
-          D
-        </Grid>
-      </Grid>
-      <Grid container spacing={3}>
-        <Grid
-          item
-          xs
-          id="Kick-n'-Hat"
-          className="drum-pad"
-          style={{ backgroundColor: "yellow", margin: 10 }}
-          onClick={playSoundZ}
-        >
-          <audio
-            ref={audioZ}
-            className="clip"
-            id="Z"
-            src="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"
-          ></audio>
-          Z
-        </Grid>
-        <Grid
-          item
-          xs
-          id="Kick"
-          className="drum-pad"
-          style={{ backgroundColor: "yellow", margin: 10 }}
-          onClick={playSoundX}
-        >
-          <audio
-            ref={audioX}
-            className="clip"
-            id="X"
-            src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"
-          ></audio>
-          X
-        </Grid>
-        <Grid
-          item
-          xs
-          id="Closed-HH"
-          className="drum-pad"
-          style={{ backgroundColor: "yellow", margin: 10 }}
-          onClick={playSoundC}
-        >
-          <audio
-            ref={audioC}
-            className="clip"
-            id="C"
-            src="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"
-          ></audio>
-          C
-        </Grid>
-      </Grid>
-      {text && <h1>{text}</h1>}
+      </div>
+      <div id="displayBox">
+        <p id="display">{text}</p>
+      </div>
     </div>
   );
 };
